@@ -13,6 +13,12 @@ export default function App(props: AppProps) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Sulphur+Point&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
 
       <MantineProvider
@@ -21,6 +27,8 @@ export default function App(props: AppProps) {
         theme={{
           /** Put your mantine theme override here */
           colorScheme: "light",
+          primaryColor: "gray",
+          fontFamily: "Sulphur Point",
         }}
       >
         <Component {...pageProps} />
