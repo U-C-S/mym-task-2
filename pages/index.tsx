@@ -9,9 +9,12 @@ import {
   Text,
   Container,
   Input,
+  Badge,
+  Button,
+  Avatar,
 } from "@mantine/core";
 import Sidebar from "../components/Sidebar";
-import { Search } from "tabler-icons-react";
+import { Bell, Notification, Search, TrendingUp } from "tabler-icons-react";
 
 export default function Home() {
   return (
@@ -28,7 +31,7 @@ export default function Home() {
           <Grid.Col span={4} bg={"#f8f8f8"} h={"100vh"} p={30}>
             <Stack>
               <Title order={1}>Dashboard</Title>
-              <Stack>
+              <Stack my={60} align="stretch">
                 {[
                   {
                     name: "Connections",
@@ -46,11 +49,18 @@ export default function Home() {
                     growth: "60%",
                   },
                 ].map((item, index) => (
-                  <Container key={index}>
-                    <Title order={3}>{item.name}</Title>
-                    <Group>
-                      <Text>{item.val}</Text>
-                      <Text>{item.growth}</Text>
+                  <Container key={index} w="100%">
+                    <Title order={4} color="#94979A">
+                      {item.name}
+                    </Title>
+                    <Group position="apart">
+                      <Text size={"28px"} ff="sans-serif">
+                        {item.val}
+                      </Text>
+                      <Badge color="teal" size="lg">
+                        <TrendingUp size={"10px"} /> &nbsp;
+                        {item.growth}
+                      </Badge>
                     </Group>
                   </Container>
                 ))}
@@ -60,22 +70,38 @@ export default function Home() {
             </Stack>
           </Grid.Col>
           <Grid.Col span={8} p={30}>
-            <Input
-              w={300}
-              radius={"8px"}
-              variant="filled"
-              placeholder="Search"
-              rightSection={
-                <Search
-                  size="1rem"
-                  style={{ display: "block", opacity: 0.5 }}
-                />
-              }
-            />
+            <Group position="apart">
+              <Input
+                w={300}
+                radius={"8px"}
+                variant="filled"
+                placeholder="Search"
+                rightSection={
+                  <Search
+                    size="1rem"
+                    style={{ display: "block", opacity: 0.5 }}
+                  />
+                }
+              />
 
-            <Stack>
-              <Title order={2}>Campigns Activity</Title>
               <Group>
+                <Button bg={"#f8f8f8"} radius="28px">
+                  <Bell color="#000" />
+                </Button>
+
+                <Avatar radius={"xl"} />
+                <Text size={"lg"}>Jacob Frost</Text>
+              </Group>
+            </Group>
+
+            <Stack mt={80} mb={40}>
+              <Group position="apart">
+                <Title order={2}>Campigns Analytics</Title>
+                <Badge color="gray" size="lg">
+                  Mar 10 - Apr 10
+                </Badge>
+              </Group>
+              <Group mt={20}>
                 {[
                   {
                     name: "Invitations Sent",
@@ -90,18 +116,26 @@ export default function Home() {
                     val: "2891",
                   },
                 ].map((item, index) => (
-                  <Stack key={index}>
-                    <Text>{item.name}</Text>
-                    <Text>{item.val}</Text>
+                  <Stack key={index} spacing="0">
+                    <Text color="#94979A">{item.name}</Text>
+                    <Text size={"28px"} ff="sans-serif">
+                      {item.val}
+                    </Text>
                   </Stack>
                 ))}
               </Group>
-              <Image src="/graph2.png" width={600} height={270} alt="graph" />
+              <Image src="/graph2.png" width={800} height={370} alt="graph" />
             </Stack>
 
             <Stack>
               <Title order={2}>Recent Activity</Title>
-              
+
+              <Stack align={"flex-start"}>
+                <Group>
+                  <Avatar radius={"xl"} />
+                  <Text size={"lg"}>Alex Morgan sent you a message.</Text>
+                </Group>
+              </Stack>
             </Stack>
           </Grid.Col>
         </Grid>

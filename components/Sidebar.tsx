@@ -36,7 +36,7 @@ export default function Sidebar() {
     <Navbar bg={"#131313"} w={260} className={classes.all}>
       <Navbar.Section>
         <Title order={1} color="#F8F8F8" align="center" mt={40}>
-          Reaply
+          Realply
         </Title>
       </Navbar.Section>
 
